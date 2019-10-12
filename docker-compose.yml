@@ -1,6 +1,6 @@
 version: '2'
 services:
-  idea-inspect-report:
+  report:
     image: node:10.16-slim
     volumes:
       # ※1 実行結果が出力されたディレクトリを`/inspection-output`としてマウントする
@@ -15,5 +15,8 @@ volumes:
     driver: local
 
 # 使い方
-# ※1 を設定して以下のコマンドで実行する
-# docker-compose run --rm idea-inspect-report
+# (1) ※1 を設定する
+# (2) npm install する
+# docker-compose run --rm report npm install
+# (3) レポートを出力する
+# docker-compose run --rm report
