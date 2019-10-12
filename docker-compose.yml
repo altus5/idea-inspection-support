@@ -1,0 +1,19 @@
+version: '2'
+services:
+  idea-inspect-report:
+    image: node:10.16-slim
+    volumes:
+      # ※1 実行結果が出力されたディレクトリを`/inspection-output`としてマウントする
+      - /var/www/app/inspection-results:/inspection-output
+      - .:/report
+      - node_modules_data:/report/node_modules
+    working_dir: /report
+    command: node lib/index.js /inspection-output
+
+volumes:
+  node_modules_data:
+    driver: local
+
+# 使い方
+# ※1 を設定して以下のコマンドで実行する
+# docker-compose run --rm idea-inspect-report
