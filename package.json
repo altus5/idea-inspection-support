@@ -1,10 +1,14 @@
 {
-  "name": "idea-inspect-report",
+  "name": "idea-inspection-support",
   "license": "MIT",
   "version": "0.1.0",
-  "main": "./lib/report.js",
+  "main": "./lib/support.js",
   "bin": {
-    "idea-inspect-report": "./lib/index.js"
+    "idea-inspect-support": "./lib/index.js"
+  },
+  "scripts": {
+    "scope": "node ./lib/index.js scope",
+    "report": "node ./lib/index.js report"
   },
   "repository": {
     "type": "git",

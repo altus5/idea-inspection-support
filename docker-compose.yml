@@ -1,22 +1,24 @@
 version: '2'
 services:
-  report:
+  support:
     image: node:10.16-slim
     volumes:
-      # ※1 実行結果が出力されたディレクトリを`/inspection-output`としてマウントする
-      - /var/www/app/inspection-results:/inspection-output
-      - .:/report
-      - node_modules_data:/report/node_modules
-    working_dir: /report
-    command: node lib/index.js /inspection-output
+      - /var/www/myapp:/app
+      - .:/support
+      - node_modules_data:/support/node_modules
+    working_dir: /support
+    command: npm install
 
 volumes:
   node_modules_data:
     driver: local
 
-# 使い方
-# (1) ※1 を設定する
-# (2) npm install する
-# docker-compose run --rm report npm install
+# docker-composeで実行する場合の使い方
+# (1) 準備（初回1回のみ）
+# * ※1 を設定する
+# * npm install する
+# docker-compose run --rm support npm install
+# (2) scopeを作成する
+# docker-compose run --rm support npm run scope /app MyScope /support/scope.json
 # (3) レポートを出力する
-# docker-compose run --rm report
+# docker-compose run --rm support npm run report /app/runtime/inspection-output
