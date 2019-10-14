@@ -1,6 +1,0 @@
-[
-    "controllers/Study*.php",
-    "models/Study*.php",
-    "views/study/*.php",
-    "common/Study*.php"
-  ]
