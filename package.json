@@ -15,7 +15,7 @@
     "url": "git@github.com:altus5/idea-inspection-support.git"
   },
   "dependencies": {
-    "fast-xml-parser": "^3.12.20",
+    "fast-xml-parser": "^4.2.4",
     "fs-extra": "^8.1.0",
     "he": "^1.2.0"
   }
